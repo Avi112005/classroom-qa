@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Q&A</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="app-title">Classroom Q&A</h1>
+                <p class="app-subtitle">Real-time learning hub</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Input Section -->
+        <section class="input-section">
+            <div class="input-card">
+                <label for="questionInput" class="input-label">Ask a Question</label>
+                <div class="input-wrapper">
+                    <textarea 
+                        id="questionInput" 
+                        class="question-input" 
+                        placeholder="What's on your mind? Ask a question..." 
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="input-footer">
+                    <button id="submitBtn" class="submit-btn">Submit Question</button>
+                    <div class="rate-limit-message" id="rateLimitMessage" style="display: none;">
+                        ⏱️ Please wait before asking another question
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Questions List -->
+        <section class="questions-section">
+            <div class="section-header">
+                <h2 class="section-title">Questions</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pinned">📌 Pinned</button>
+                    <button class="filter-btn" data-filter="answered">✅ Answered</button>
+                </div>
+            </div>
+            <div class="questions-list" id="questionsList">
+                <div class="empty-state">
+                    <p>No questions yet. Be the first to ask!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
